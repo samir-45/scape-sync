@@ -2,16 +2,19 @@
 
 import { useState } from "react";
 import api from "@/lib/api";
+import { useRouter } from "next/navigation";
 
 export default function ForgotPasswordForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await api.post("/forgot-password", { email });
       setMessage("Password reset link sent! Check your email.");
+      router.push(`/forgot-verify-otp?email=${email}`);
     } catch (err) {
       setMessage(err.response?.data?.message || "Failed to send reset email");
     }

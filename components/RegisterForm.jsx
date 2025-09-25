@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/lib/api";
 import Link from "next/link";
-import { useAuth } from "@/context/AuthContext";
 
 export default function RegisterForm() {
     const router = useRouter();

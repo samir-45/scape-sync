@@ -11,7 +11,7 @@ const BackArrowIcon = () => (
     </svg>
 );
 
-export default function VerifyOtpForm({ email }) {
+export default function ForgotVerifyOtpForm({ email }) {
     const router = useRouter();
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
@@ -47,7 +47,6 @@ export default function VerifyOtpForm({ email }) {
         e.preventDefault();
         setMessage("");
         setLoading(true);
-        const msg = "Account Created Successfully";
         const verificationCode = code.join('');
         if (verificationCode.length !== 6) {
             alert('Please enter the full 6-digit code.');
@@ -55,19 +54,11 @@ export default function VerifyOtpForm({ email }) {
             return;
         }
         try {
-            await api.post("/verify_otp", { email, otp: verificationCode });
+            await api.post("/forgot-verify-otp", { email, otp: verificationCode });
             setMessage("OTP verified successfully! You can login now.");
-            router.push(`/login?msg=${msg}`);
+            router.push("/reset-password");
         } catch (err) {
             setMessage(err.response?.data?.message || "OTP verification failed");
-
-            if (err.response?.data?.message === "Email already verified") {
-                // Redirect to login if email is already verified
-                router.push("/login");
-            } else {
-                setMessage(err.response?.data?.message || "OTP verification failed");
-            }
-
             console.log(err.response?.data);
         } finally {
             setLoading(false);
@@ -118,7 +109,7 @@ export default function VerifyOtpForm({ email }) {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-transform transform hover:scale-105"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 cursor-pointer"
                     >
                         {loading ? "Verifying..." : "Verify"}
                     </button>
