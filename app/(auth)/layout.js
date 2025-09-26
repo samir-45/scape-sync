@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export default function AuthLayout({ children }) {
@@ -7,13 +8,15 @@ export default function AuthLayout({ children }) {
 
       {/* Logo */}
       <div className="flex justify-start absolute top-4 left-4">
-        <Image
-          src="/Logo.svg"
-          alt="Logo"
-          width={130}
-          height={50}
-          priority
-        />
+        <Link href="/">
+          <Image
+            src="/Logo.svg"
+            alt="Logo"
+            width={130}
+            height={50}
+            priority
+          />
+        </Link>
       </div>
 
       {children}
