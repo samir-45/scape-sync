@@ -1,9 +1,13 @@
 "use client"
 import { useAuth } from '@/context/AuthContext';
 import Image from 'next/image'
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 export default function NavBar() {
+
+    const router = useRouter();
 
     const { user, logout } = useAuth();
 
@@ -23,7 +27,7 @@ export default function NavBar() {
                     className='hidden sm:block'
                     priority
                 />
-                                <Image
+                <Image
                     src="/Logo.svg"
                     alt="Logo"
                     width={100}
@@ -45,17 +49,19 @@ export default function NavBar() {
                         </div>
                         <button
                             onClick={handleLogout}
-                            className="rounded-md bg-[#3BA334] py-2 px-6 text-white font-medium hover:bg-green-700 transition"
+                            className="rounded-md cursor-pointer bg-[#3BA334] py-2 px-6 text-white font-medium hover:bg-green-700 transition"
                         >
                             Logout
                         </button>
                     </div>
                 </> : <>
-                    <button
-                        className="rounded-md bg-[#3BA334] py-2 px-6 text-white font-medium hover:bg-green-700 transition"
-                    >
-                        Get Started
-                    </button>
+                    <Link href="/login">
+                        <button
+                            className="rounded-md cursor-pointer bg-[#3BA334] py-2 px-6 text-white font-medium hover:bg-green-700 transition"
+                        >
+                            Get Started
+                        </button>
+                    </Link>
                 </>}
 
             </div>

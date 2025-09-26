@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Scape Sync",
   description: "Landscaping Management Software",
+    icons: {
+    icon: "/fav.svg",
+  },
 };
 
 export default function RootLayout({ children }) {

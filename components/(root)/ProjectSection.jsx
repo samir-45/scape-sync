@@ -4,12 +4,31 @@ import React from 'react'
 export default function ProjectSection() {
     return (
         <section className="relative py-20 px-6 sm:px-12 lg:px-16 bg-white">
+
+            {/* Arrows */}
+            <div>
+                <img className='absolute top-40 left-1/6 transform -translate-x-1/2' src="/arrow - 2.svg" alt="" />
+                <img className='absolute top-40 left-2/4 w-1/4 transform -translate-x-1/2' src="/arrow - 3.svg" alt="" />
+                <img className='absolute top-40 left-7/8 w-1/5 transform -translate-x-1/2' src="/arrow - 4.svg" alt="" />
+            </div>
+
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto mb-16">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                    Build for Everyone
+                    Build for
+                    <span className="relative inline-block">
+                        Everyone
+                        <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 w-[200px] sm:w-[280px] lg:w-[400px]">
+                            <Image
+                                src="/arrow - 1.svg"
+                                alt="underline vector"
+                                width={200}
+                                height={200}
+                            />
+                        </span>
+                    </span>
                 </h2>
-                <p className="mt-4 text-gray-600">
+                <p className="mt-4 text-gray-600 sm:px-5">
                     Whether you’re booking services, managing tasks, or running operations,
                     we’ve designed the perfect experience for you.
                 </p>
@@ -52,7 +71,7 @@ export default function ProjectSection() {
                             className="w-[260px] sm:w-[500px] h-auto"
                         />
                         {/* Gradient fade overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
                     </div>
                 </div>
 
@@ -68,7 +87,7 @@ export default function ProjectSection() {
                             className="w-[260px] sm:w-[500px] h-auto"
                         />
                         {/* Gradient fade overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
                     </div>
                     {/* Text */}
                     <div className="flex-1 text-center lg:text-left">
@@ -132,7 +151,7 @@ export default function ProjectSection() {
                             className="w-[260px] sm:w-[500px] h-auto"
                         />
                         {/* Gradient fade overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
                     </div>
                 </div>
             </div>
