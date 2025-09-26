@@ -9,7 +9,7 @@ export default function HeroSection() {
                 {/* Background SVG (leaf) */}
                 <div className="absolute -top-4 left-1/2 lg:left-1/4 -translate-x-1/2 lg:translate-x-0">
                     <Image
-                        src="/vector-1.png"
+                        src="/vector-1.svg"
                         alt="leaf background"
                         width={150}
                         height={150}
@@ -24,7 +24,7 @@ export default function HeroSection() {
                             One Smart App
                             <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 w-[200px] sm:w-[280px] lg:w-[400px]">
                                 <Image
-                                    src="/vector-2.png"
+                                    src="/vector-2.svg"
                                     alt="underline vector"
                                     width={400}
                                     height={400}
