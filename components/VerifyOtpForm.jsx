@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import api from "@/lib/api";
 import { useRouter } from "next/navigation";
+import toast from 'react-hot-toast';
 
 // Reusable Icon components
 const BackArrowIcon = () => (
@@ -13,7 +14,6 @@ const BackArrowIcon = () => (
 
 export default function VerifyOtpForm({ email }) {
     const router = useRouter();
-    const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
     const [resendLoading, setResendLoading] = useState(false);
     const [code, setCode] = useState(Array(6).fill(''));
@@ -45,7 +45,6 @@ export default function VerifyOtpForm({ email }) {
 
     const handleVerify = async (e) => {
         e.preventDefault();
-        setMessage("");
         setLoading(true);
         const msg = "Account Created Successfully";
         const verificationCode = code.join('');
@@ -56,19 +55,19 @@ export default function VerifyOtpForm({ email }) {
         }
         try {
             await api.post("/verify_otp", { email, otp: verificationCode });
-            setMessage("OTP verified successfully! You can login now.");
+            toast.success("OTP verified successfully! You can login now.");
             router.push(`/login?msg=${msg}`);
         } catch (err) {
-            setMessage(err.response?.data?.message || "OTP verification failed");
+            toast.error(err.response?.data?.message || "OTP verification failed");
 
             if (err.response?.data?.message === "Email already verified") {
                 // Redirect to login if email is already verified
                 router.push("/login");
             } else {
-                setMessage(err.response?.data?.message || "OTP verification failed");
+                toast.error(err.response?.data?.message || "OTP verification failed");
             }
 
-            console.log(err.response?.data);
+            // console.log(err.response?.data);
         } finally {
             setLoading(false);
         }
@@ -76,19 +75,18 @@ export default function VerifyOtpForm({ email }) {
 
     const handleResendCode = async () => {
         if (!email) {
-            setMessage("Please enter your email first.");
+            toast.error("Please enter your email first.");
             return;
         }
-        setMessage("");
         setResendLoading(true);
 
         try {
             await api.post("/resend_otp", { email });
 
-            setMessage("OTP resent successfully! Check your email.");
+            toast.success("OTP resent successfully! Check your email.");
         } catch (err) {
-            setMessage(err.response?.data?.message || "Failed to resend OTP");
-            console.log(err.response?.data);
+            toast.error(err.response?.data?.message || "Failed to resend OTP");
+            // console.log(err.response?.data);
         } finally {
             setResendLoading(false);
         }
@@ -98,7 +96,6 @@ export default function VerifyOtpForm({ email }) {
     return (
         <div>
             <form onSubmit={handleVerify}>
-                {message && <p className="text-blue-500">{message}</p>}
                 <div className="flex justify-center space-x-2 sm:space-x-4 mb-6">
                     {code.map((digit, index) => (
                         <input

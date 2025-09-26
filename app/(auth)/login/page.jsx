@@ -17,6 +17,7 @@ export default function LoginPage() {
         {/* Form Component (Client) */}
         <LoginForm></LoginForm>
       </div>
+      
     </div>
   );
 }

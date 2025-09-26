@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react'
+import toast from 'react-hot-toast';
 
 export default function NavBar() {
 
@@ -12,6 +13,7 @@ export default function NavBar() {
     const { user, logout } = useAuth();
 
     const handleLogout = async () => {
+        toast.success('Successfully Logged Out!')
         await logout();
         router.push("/login");
     };

@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import api from "@/lib/api";
 import { useRouter } from "next/navigation";
+import toast from 'react-hot-toast';
 
 // Reusable Icon components
 const BackArrowIcon = () => (
@@ -45,7 +46,6 @@ export default function ForgotVerifyOtpForm({ email }) {
 
     const handleVerify = async (e) => {
         e.preventDefault();
-        setMessage("");
         setLoading(true);
         const verificationCode = code.join('');
         if (verificationCode.length !== 6) {
@@ -55,11 +55,11 @@ export default function ForgotVerifyOtpForm({ email }) {
         }
         try {
             await api.post("/forgot-verify-otp", { email, otp: verificationCode });
-            setMessage("OTP verified successfully! You can login now.");
+            toast.success('Successfully verified OTP!');
             router.push("/reset-password");
         } catch (err) {
-            setMessage(err.response?.data?.message || "OTP verification failed");
-            console.log(err.response?.data);
+            toast.error(err.response?.data?.message || "OTP verification failed");
+            // console.log(err.response?.data);
         } finally {
             setLoading(false);
         }
@@ -67,7 +67,7 @@ export default function ForgotVerifyOtpForm({ email }) {
 
     const handleResendCode = async () => {
         if (!email) {
-            setMessage("Please enter your email first.");
+            toast.error("Please enter your email first.");
             return;
         }
         setMessage("");
@@ -76,10 +76,9 @@ export default function ForgotVerifyOtpForm({ email }) {
         try {
             await api.post("/resend_otp", { email });
 
-            setMessage("OTP resent successfully! Check your email.");
+            toast.success("OTP resent successfully! Check your email.");
         } catch (err) {
-            setMessage(err.response?.data?.message || "Failed to resend OTP");
-            console.log(err.response?.data);
+            toast.error(err.response?.data?.message || "Failed to resend OTP");
         } finally {
             setResendLoading(false);
         }

@@ -6,6 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function LoginForm() {
   const { login } = useAuth();
@@ -14,10 +15,12 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const fd = new FormData();
       fd.append("email", email);
@@ -27,10 +30,15 @@ export default function LoginForm() {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
+      toast.success('Successfully logged in!');
       login(res.data.token);
+
       router.push("/");
     } catch (err) {
+      toast.error(err.response?.data?.message || "Login failed");
       setError(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -95,9 +103,10 @@ export default function LoginForm() {
       {/* Login Button */}
       <button
         type="submit"
+        disabled={loading}
         className="w-full rounded-md bg-green-600 py-2 text-white font-medium hover:bg-green-700 transition"
       >
-        Login
+        {loading ? "Loading..." : "Login"}
       </button>
 
       {/* OR Divider */}

@@ -3,16 +3,19 @@
 import { useState } from "react";
 import api from "@/lib/api";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function ResetPasswordForm() {
   const router = useRouter();
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const msg = "Password Reset Successfully";
     try {
       await api.post("/reset-password", {
@@ -20,10 +23,12 @@ export default function ResetPasswordForm() {
         password_confirmation: passwordConfirm,
         token,
       });
-      setMessage("Password reset successful! You can login now.");
+      toast.success("Password reset successful! You can login now.");
       router.push(`/login?msg=${msg}`);
     } catch (err) {
-      setMessage(err.response?.data?.message || "Reset failed");
+      toast.error(err.response?.data?.message || "Reset failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -55,8 +60,8 @@ export default function ResetPasswordForm() {
           value={token}
           onChange={(e) => setToken(e.target.value)}
         />
-        <button className="w-full rounded-md bg-green-600 py-2 text-white font-medium hover:bg-green-700 transition">
-          Reset Password
+        <button disabled={loading} className="w-full rounded-md bg-green-600 py-2 text-white font-medium hover:bg-green-700 transition">
+          {loading ? "Resetting Password..." : "Reset Password"}
         </button>
       </form>
     </div>

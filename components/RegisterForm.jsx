@@ -63,7 +63,7 @@ export default function RegisterForm() {
             router.push(`/verify-otp?email=${email}`);
         } catch (err) {
             const data = err?.response?.data;
-            console.log(data.message)
+            // console.log(data.message)
 
             if (data?.message === "The email has already been taken.") {
                 // Redirect to login if email is already verified
