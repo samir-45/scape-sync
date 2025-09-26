@@ -13,7 +13,6 @@ export default function HeroSection() {
                         alt="leaf background"
                         width={150}
                         height={150}
-                        className="w-32 sm:w-40 lg:w-48 h-auto"
                     />
                 </div>
 
@@ -28,7 +27,6 @@ export default function HeroSection() {
                                     alt="underline vector"
                                     width={400}
                                     height={400}
-                                    className="w-full h-auto"
                                 />
                             </span>
                         </span>
