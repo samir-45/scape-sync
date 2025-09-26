@@ -1,3 +1,4 @@
+import FaqSection from "@/components/(root)/FaqSection";
 import FeaturesSection from "@/components/(root)/FeaturesSection";
 import Footer from "@/components/(root)/Footer";
 import HeroSection from "@/components/(root)/HeroSection";
@@ -15,6 +16,7 @@ export default function Home() {
       <FeaturesSection></FeaturesSection>
       <ProjectSection></ProjectSection>
       <ReviewsSection></ReviewsSection>
+      <FaqSection></FaqSection>
       <Footer></Footer>
     </div>
   );
