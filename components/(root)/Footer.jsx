@@ -9,11 +9,14 @@ import { RxCross2 } from "react-icons/rx"; // for the "X" (Twitter/X)
 
 export default function Footer() {
     return (
-        <footer className="relative bg-[#0E4032] text-white pt-12 pb-2 px-6 sm:px-12 lg:px-16">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-10">
+        <footer className=" relative overflow-hidden bg-[#0E4032] text-white  pb-2 px-6 sm:px-12 lg:px-16">
+            <img className="absolute -bottom-50 right-1/2 lg:right-1/8 opacity-40" src="/vector 2.svg" alt="" />
+            <img className="absolute -right-5 -top-5 opacity-40" src="/vector 3.svg" alt="" />
+            <img className="absolute -right-5 lg:-top-5 -bottom-1 lg:-bottom-0 opacity-40" src="/vector 4.png" alt="" />
+            <div className="max-w-7xl relative pt-12 z-40 mx-auto flex items-start lg:items-center flex-col lg:flex-row justify-between  gap-10">
                 {/* Left Section */}
-                <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-4">
+                <div className="">
+                    <div className="flex items-center py-0 sm:py-5  gap-3 mb-4">
                         <Image
                             src="/Logo-2.svg" // place your logo in /public
                             alt="ScapeSync Logo"
@@ -21,11 +24,6 @@ export default function Footer() {
                             height={180}
                         />
                     </div>
-                    <p className="text-gray-300 text-sm max-w-md">
-                        Your all-in-one platform for job scheduling, employee
-                        management, and client service built to keep your
-                        business running smoothly from anywhere.
-                    </p>
 
                     {/* Social Icons */}
                     <div className="flex items-center gap-5 mt-6 text-xl">
@@ -44,9 +42,17 @@ export default function Footer() {
                     </div>
                 </div>
 
+                <div className=" h-full">
+                    <p className="text-gray-300 text-sm max-w-md">
+                        Your all-in-one platform for job scheduling, employee
+                        management, and client service built to keep your
+                        business running smoothly from anywhere.
+                    </p>
+                </div>
+
                 {/* Right Section - App Buttons */}
                 {/* App Store buttons */}
-                <div className="mt-8 flex flex-row justify-center md:justify-start items-center gap-4">
+                <div className=" flex flex-row justify-center md:justify-start items-center gap-4">
                     <a
                         href="#"
                         className="flex items-center gap-2 border border-[#ABDAA9] px-3 py-2 rounded-lg  "
