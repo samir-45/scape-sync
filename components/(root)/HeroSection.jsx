@@ -7,7 +7,7 @@ export default function HeroSection() {
             {/* Text */}
             <div className="relative flex flex-col items-center md:items-start text-center md:text-left w-full">
                 {/* Background SVG (leaf) */}
-                <div className="absolute -top-4 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 opacity-20">
+                <div className="absolute -top-4 left-1/2 lg:left-1/4 -translate-x-1/2 lg:translate-x-0">
                     <Image
                         src="/vector-1.png"
                         alt="leaf background"
