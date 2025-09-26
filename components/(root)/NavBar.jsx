@@ -37,7 +37,7 @@ export default function NavBar() {
             <div>
                 {user ? <>
                     <div className='flex items-center gap-1 sm:gap-2'>
-                        <div className="border px-1 sm:px-2 rounded-lg text-[12px] sm:text-sm font-semibold border-dashed border-green-600">
+                        <div className="border px-1 sm:px-3 rounded-lg text-[12px] sm:text-sm font-semibold border-dashed border-green-600">
                             <p>
                                 <strong></strong> {user?.data.first_name} {user?.data.last_name}
                             </p>

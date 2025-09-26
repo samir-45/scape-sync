@@ -7,7 +7,7 @@ export default function ProjectSection() {
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto mb-16">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                    Build for <span className="text-green-600">Everyone</span>
+                    Build for Everyone
                 </h2>
                 <p className="mt-4 text-gray-600">
                     Whether you’re booking services, managing tasks, or running operations,
@@ -20,7 +20,7 @@ export default function ProjectSection() {
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                     {/* Text */}
                     <div className="flex-1 text-center lg:text-left">
-                        <span className="inline-block bg-green-100 text-green-600 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                        <span className="inline-block border-[1.5px] border-[#3BA334] text-[#3BA334] text-sm font-semibold px-4 py-1 rounded-full mb-4">
                             Users
                         </span>
                         <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
@@ -35,40 +35,44 @@ export default function ProjectSection() {
                                 <span className="text-green-600 font-bold">|</span> Book services in seconds
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-green-600 font-bold">|</span> Track real-time job updates
+                                <span className="text-green-600 font-bold opacity-50">|</span> Track real-time job updates
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-green-600 font-bold">|</span> Schedule appointments at your convenience
+                                <span className="text-green-600 font-bold opacity-20">|</span> Schedule appointments at your convenience
                             </li>
                         </ul>
                     </div>
                     {/* Image */}
-                    <div className="flex-1 flex justify-center">
+                    <div className="flex-1 relative flex justify-center">
                         <Image
                             src="/mobile-1.svg"
                             alt="User phone mockup"
-                            width={300}
+                            width={500}
                             height={600}
-                            className="w-[260px] sm:w-[300px] h-auto"
+                            className="w-[260px] sm:w-[500px] h-auto"
                         />
+                        {/* Gradient fade overlay */}
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
                     </div>
                 </div>
 
                 {/* Feature 2: Business Owners */}
                 <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
                     {/* Image */}
-                    <div className="flex-1 flex justify-center">
+                    <div className="flex-1 relative flex justify-center">
                         <Image
                             src="/mobile-2.svg"
                             alt="Business owners phone mockup"
-                            width={300}
+                            width={500}
                             height={600}
-                            className="w-[260px] sm:w-[300px] h-auto"
+                            className="w-[260px] sm:w-[500px] h-auto"
                         />
+                        {/* Gradient fade overlay */}
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
                     </div>
                     {/* Text */}
                     <div className="flex-1 text-center lg:text-left">
-                        <span className="inline-block bg-green-100 text-green-600 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                        <span className="inline-block border-[1.5px] border-[#3BA334] text-[#3BA334] text-sm font-semibold px-4 py-1 rounded-full mb-4">
                             Business Owners
                         </span>
                         <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
@@ -83,10 +87,10 @@ export default function ProjectSection() {
                                 <span className="text-green-600 font-bold">|</span> Assign jobs to the right team member
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-green-600 font-bold">|</span> Monitor performance in real time
+                                <span className="text-green-600 font-bold opacity-50">|</span> Monitor performance in real time
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-green-600 font-bold">|</span> Manage clients and services seamlessly
+                                <span className="text-green-600 font-bold opacity-20">|</span> Manage clients and services seamlessly
                             </li>
                         </ul>
                     </div>
@@ -96,7 +100,7 @@ export default function ProjectSection() {
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                     {/* Text */}
                     <div className="flex-1 text-center lg:text-left">
-                        <span className="inline-block bg-green-100 text-green-600 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                        <span className="inline-block border-[1.5px] border-[#3BA334] text-[#3BA334] text-sm font-semibold px-4 py-1 rounded-full mb-4">
                             Employees
                         </span>
                         <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
@@ -111,22 +115,24 @@ export default function ProjectSection() {
                                 <span className="text-green-600 font-bold">|</span> Assign jobs to the right team member
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-green-600 font-bold">|</span> Monitor performance in real time
+                                <span className="text-green-600 font-bold opacity-50">|</span> Monitor performance in real time
                             </li>
                             <li className="flex items-center gap-2">
-                                <span className="text-green-600 font-bold">|</span> Manage clients and services seamlessly
+                                <span className="text-green-600 font-bold opacity-20">|</span> Manage clients and services seamlessly
                             </li>
                         </ul>
                     </div>
                     {/* Image */}
-                    <div className="flex-1 flex justify-center">
+                    <div className="flex-1 relative flex justify-center">
                         <Image
                             src="/mobile-3.svg"
                             alt="Employees phone mockup"
-                            width={300}
+                            width={500}
                             height={600}
-                            className="w-[260px] sm:w-[300px] h-auto"
+                            className="w-[260px] sm:w-[500px] h-auto"
                         />
+                        {/* Gradient fade overlay */}
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
                     </div>
                 </div>
             </div>
