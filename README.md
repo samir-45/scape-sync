@@ -44,28 +44,28 @@ The platform features a complete, secure authentication flow including:
 
 ## 📂 Project Structure
 
-```
 
+```bash
 app/
-├── layout.tsx         \# Root layout
-├── page.tsx           \# Home page (sections from Figma)
-└── auth/
-├── login/page.tsx       \# Login page
-├── register/page.tsx    \# Register page
-├── forgot-password/page.tsx \# Request OTP
-├── verify-otp/page.tsx  \# OTP verification
-└── reset-password/page.tsx \# Reset password
+ ├── layout.tsx         # Root layout
+ ├── page.tsx           # Home page (sections from Figma)
+ └── auth/
+     ├── login/page.tsx       # Login page
+     ├── register/page.tsx    # Register page
+     ├── forgot-password/page.tsx # Request OTP
+     ├── verify-otp/page.tsx  # OTP verification
+     └── reset-password/page.tsx # Reset password
 
 components/
-├── Navbar.tsx
-├── Footer.tsx
-└── forms/             \# Reusable form + error components
+ ├── Navbar.tsx
+ ├── Footer.tsx
+ └── forms/             # Reusable form + error components
 
 context/
-└── AuthContext.tsx    \# Manages user + token
+ └── AuthContext.tsx    # Manages user + token
 
 lib/
-└── api.ts             \# Axios instance with baseURL + interceptors
+ └── api.ts             # Axios instance with baseURL + interceptors
 
 ````
 
