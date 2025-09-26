@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🚀 Scape-Sync a mobile saas platform
 
-## Getting Started
+This project is a single-page application (SPA) built with Next.js (App Router), styled with TailwindCSS + DaisyUI, and connected to an external backend via provided Postman API endpoints.
 
-First, run the development server:
+It includes a Home page with multiple sections and a full authentication system with:
 
-```bash
+✅ User Registration (with validation & terms checkbox)
+
+✅ User Login (JWT token saved in context/localStorage)
+
+✅ Forgot Password (request OTP)
+
+✅ Verify OTP (form-data submission)
+
+✅ Reset Password (with token from OTP flow)
+
+✅ Logout & User Detail fetching
+
+✅ Loading states + error handling
+
+📂 Project Structure
+app/
+ ├── layout.tsx          # Root layout
+ ├── page.tsx            # Home page (sections from Figma)
+ ├── auth/
+ │   ├── login/page.tsx  # Login page
+ │   ├── register/page.tsx # Register page
+ │   ├── forgot-password/page.tsx # Request OTP
+ │   ├── verify-otp/page.tsx      # OTP verification
+ │   └── reset-password/page.tsx  # Reset password
+components/
+ ├── Navbar.tsx
+ ├── Footer.tsx
+ └── forms/              # Reusable form + error components
+context/
+ └── AuthContext.tsx     # Manages user + token
+lib/
+ └── api.ts              # Axios instance with baseURL + interceptors
+
+🔑 Authentication Flow
+
+Register → User enters details → form-data POST → redirect to Login
+
+Login → POST with form-data → backend returns token → saved in AuthContext + localStorage
+
+Forgot Password → enter email → backend sends OTP
+
+Verify OTP → enter email + OTP (form-data) → backend verifies → token provided
+
+Reset Password → new password + token submitted → password updated
+
+Logout → token cleared, user context reset
+
+🛠️ Tech Stack
+
+Framework: Next.js 15 (App Router)
+
+Styling: TailwindCSS
+ + DaisyUI
+
+State: React Context API (AuthContext)
+
+HTTP Client: Axios (configured in lib/api.ts)
+
+Forms: Custom validation with field-level errors
+
+📦 Installation
+# Clone the repository
+git clone https://github.com/samir-45/scape-sync.git
+
+# Navigate into the folder
+cd scape-sync
+
+# Install dependencies
+npm install
+
+# Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📌 Notes
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+All API requests use multipart/form-data as required by backend.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+JWT token is stored in localStorage and injected into Authorization headers via Axios interceptors.
 
-## Learn More
+DaisyUI theme is locked to light mode (customizable in tailwind.config.js).
 
-To learn more about Next.js, take a look at the following resources:
+Future improvements: we can add Dashboard, Profile page, or other routes easily.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+👨‍💻 Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Developed by Mahin Khan
 
-## Deploy on Vercel
+- Portfolio : https://mahin-portfolio-site.netlify.app/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- LinkedIn : https://www.linkedin.com/in/devmahin 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GitHub : https://github.com/samir-45
