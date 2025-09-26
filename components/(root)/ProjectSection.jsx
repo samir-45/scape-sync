@@ -7,9 +7,9 @@ export default function ProjectSection() {
 
             {/* Arrows */}
             <div>
-                <img className='absolute top-40 left-1/6 transform -translate-x-1/2' src="/arrow - 2.svg" alt="" />
-                <img className='absolute top-40 left-2/4 w-1/4 transform -translate-x-1/2' src="/arrow - 3.svg" alt="" />
-                <img className='absolute top-40 left-7/8 w-1/5 transform -translate-x-1/2' src="/arrow - 4.svg" alt="" />
+                <img className='absolute hidden lg:block top-40 left-1/6 transform -translate-x-1/2' src="/arrow - 2.svg" alt="" />
+                <img className='absolute hidden lg:block top-40 left-2/4 w-1/4 transform -translate-x-1/2' src="/arrow - 3.svg" alt="" />
+                <img className='absolute hidden lg:block top-40 left-7/8 w-1/5 transform -translate-x-1/2' src="/arrow - 4.svg" alt="" />
             </div>
 
             {/* Section Header */}

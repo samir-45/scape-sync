@@ -1,11 +1,12 @@
 // components/Footer.tsx
 import Image from "next/image";
+import Link from "next/link";
 import {
     FaYoutube,
-    FaFacebookF,
     FaInstagram,
+    FaFacebook,
 } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx"; // for the "X" (Twitter/X)
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
     return (
@@ -27,18 +28,18 @@ export default function Footer() {
 
                     {/* Social Icons */}
                     <div className="flex items-center gap-5 mt-6 text-xl">
-                        <a href="#" className="hover:text-green-400">
+                        <Link href="#" className="hover:text-green-400">
                             <FaYoutube />
-                        </a>
-                        <a href="#" className="hover:text-green-400">
-                            <RxCross2 />
-                        </a>
-                        <a href="#" className="hover:text-green-400">
-                            <FaFacebookF />
-                        </a>
-                        <a href="#" className="hover:text-green-400">
+                        </Link>
+                        <Link href="#" className="hover:text-green-400">
+                            <FaXTwitter />
+                        </Link>
+                        <Link href="#" className="hover:text-green-400">
+                            <FaFacebook />
+                        </Link>
+                        <Link href="#" className="hover:text-green-400">
                             <FaInstagram />
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

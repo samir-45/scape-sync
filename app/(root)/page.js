@@ -8,7 +8,6 @@ import ReviewsSection from "@/components/(root)/ReviewsSection";
 
 export default function Home() {
 
-
   return (
     <div>
       <NavBar></NavBar>
