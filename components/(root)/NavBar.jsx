@@ -23,9 +23,7 @@ export default function NavBar() {
                     className='hidden sm:block'
                     priority
                 />
-            </div>
-            <div>
-                <Image
+                                <Image
                     src="/Logo.svg"
                     alt="Logo"
                     width={100}
