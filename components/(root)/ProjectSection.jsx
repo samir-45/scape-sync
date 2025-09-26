@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function ProjectSection() {
     return (
-        <section className="relative py-20 px-6 sm:px-12 lg:px-20 bg-white">
+        <section className="relative py-20 px-6 sm:px-12 lg:px-16 bg-white">
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto mb-16">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
